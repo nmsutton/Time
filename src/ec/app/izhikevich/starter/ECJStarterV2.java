@@ -18,8 +18,8 @@ import ec.app.izhikevich.inputprocess.labels.ModelParameterID;
 import ec.app.izhikevich.model.Izhikevich9pModel;
 import ec.app.izhikevich.model.neurontypes.mc.EAGenes;
 import ec.app.izhikevich.model.neurontypes.mc.OneNeuronInitializer;
-import ec.app.izhikevich.resonate.Bifurcation;
-import ec.app.izhikevich.resonate.PyPlotter;
+//import ec.app.izhikevich.resonate.Bifurcation;
+//import ec.app.izhikevich.resonate.PyPlotter;
 import ec.app.izhikevich.util.ModelFactory;
 import ec.util.Output;
 import ec.util.Parameter;
@@ -203,10 +203,10 @@ static void runLocally(int nJobs, ParameterDatabase pdb, boolean plot_bif){
 			String dataFile = "output//"+modelECJFilePathExp+"//temp_bif"+i+".dat";
 			
 			
-			Bifurcation.writePcareMapVals(dataFile, model, Imin, Imax, N);
+			//Bifurcation.writePcareMapVals(dataFile, model, Imin, Imax, N);
 			System.out.println("plotting..");
-			PyPlotter plotter = new PyPlotter(dataFile);
-			plotter.invoke("plotterBIF_unx.py");
+			/*PyPlotter plotter = new PyPlotter(dataFile);
+			plotter.invoke("plotterBIF_unx.py");*/
 			File bifFile = new File(dataFile);
 			bifFile.delete();
 			
@@ -257,10 +257,10 @@ static void runOnServer(ParameterDatabase pdb, String folder, int jobIdx, int ch
 			String dataFile = "output//"+modelECJFilePathExp+"//temp_bif"+jobIdx+".dat";
 			
 			
-			Bifurcation.writePcareMapVals(dataFile, model, Imin, Imax, N);
+			//Bifurcation.writePcareMapVals(dataFile, model, Imin, Imax, N);
 			System.out.println("plotting..");
-			PyPlotter plotter = new PyPlotter(dataFile);
-			plotter.invoke("plotterBIF_unx.py");
+			/*PyPlotter plotter = new PyPlotter(dataFile);
+			plotter.invoke("plotterBIF_unx.py");*/
 			File bifFile = new File(dataFile);
 			bifFile.delete();
 			
@@ -398,7 +398,8 @@ class MCParamFile {
 				!ModelParameterID.W.equals(modelParam)) { // for dendrite bounded bw (0 and 10), hence set to true
 			addParametertoDB("vector.species.mutation-bounded."+idx, "false");
 		}else{
-			addParametertoDB("vector.species.mutation-bounded."+idx, eaParams.getMutBounded());
+			//addParametertoDB("vector.species.mutation-bounded."+idx, eaParams.getMutBounded());
+			addParametertoDB("vector.species.mutation-bounded."+idx, "true");
 		}
 	}
 	void addParametertoDB(String name, String value) {

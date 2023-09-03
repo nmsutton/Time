@@ -1,4 +1,3 @@
-
 breedthreads	= auto
 evalthreads	= auto
 seed.0		= time
@@ -12,7 +11,7 @@ breed		= ec.simple.SimpleBreeder
 exch		= ec.simple.SimpleExchanger
 
 jobs = 1
-generations		= 2000
+generations		= 3
 pop.subpop.0.size 		= 240
 
 quit-on-run-complete	= true

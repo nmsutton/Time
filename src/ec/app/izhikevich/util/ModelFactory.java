@@ -18,7 +18,7 @@ import ec.app.izhikevich.model.Ermen;
 import ec.app.izhikevich.model.Izhikevich9pModel;
 import ec.app.izhikevich.model.Izhikevich9pModelMC;
 import ec.app.izhikevich.model.neurontypes.mc.EAGenes;
-import ec.app.izhikevich.resonate.Bifurcation;
+//import ec.app.izhikevich.resonate.Bifurcation;
 import ec.app.izhikevich.spike.labels.SpikePatternClass;
 
 public class ModelFactory {
@@ -465,7 +465,7 @@ public class ModelFactory {
 		
 		ArrayList<Izhikevich9pModel> filteredModels = new ArrayList<>();
 		for(int i=0;i<models.length;i++){
-			Bifurcation bf = new Bifurcation(models[i], models[i].getCurrent());
+			/* bf = new Bifurcation(models[i], models[i].getCurrent());
 			double period = bf.identifyPeriod(bf.cutSSPcareU(models[i].getvPeak()-20));	
 			if(period > valmin){
 				filteredModels.add(models[i]);
@@ -490,7 +490,7 @@ public class ModelFactory {
 					}
 					//System.out.println(i +"\t"+_class.toString());
 				}
-			}
+			}*/
 		}
 		System.out.println("filtered "+filteredModels.size()+" models!");
 		System.out.println("***\n"+stut+"\n"+burst+"\n"+spike+"\n***");

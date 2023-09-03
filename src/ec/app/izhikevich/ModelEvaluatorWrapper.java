@@ -23,7 +23,7 @@ import ec.app.izhikevich.model.Izhikevich9pModel3C_L2;
 import ec.app.izhikevich.model.Izhikevich9pModel4C;
 import ec.app.izhikevich.model.Izhikevich9pModelMC;
 import ec.app.izhikevich.model.neurontypes.mc.EAGenes;
-import ec.app.izhikevich.resonate.Bifurcation;
+//import ec.app.izhikevich.resonate.Bifurcation;
 import ec.app.izhikevich.starter.ECJStarterV2;
 import ec.simple.SimpleFitness;
 import ec.simple.SimpleProblemForm;
@@ -179,7 +179,7 @@ public class ModelEvaluatorWrapper extends Problem implements SimpleProblemForm
         model.setvPeak(genes.getVPEAK()[0]);
         
         
-        Bifurcation bf = new Bifurcation(model, genes.getI()[0]);		
+        /*Bifurcation bf = new Bifurcation(model, genes.getI()[0]);		
 		int period = bf.identifyPeriod(bf.cutSSPcareU(model.getvPeak()-20));
 		double freq = bf.getSpattern().getFiringFrequencyBasedOnISIs();
 		float normFactor;
@@ -189,7 +189,8 @@ public class ModelEvaluatorWrapper extends Problem implements SimpleProblemForm
 			normFactor = (float)Math.log10(freq);
 		}
 		bf=null;
-		return (period*1f/normFactor);        
+		return (period*1f/normFactor);        */
+		return 0;
 	}
 	private float[] evaluateIndForMultiObj(EAGenes genes){
 		Izhikevich9pModelMC model = getRightInstanceForModel(); 

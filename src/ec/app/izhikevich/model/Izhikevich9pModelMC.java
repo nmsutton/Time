@@ -44,6 +44,11 @@ public class Izhikevich9pModelMC implements FirstOrderDifferentialEquations{
 	private double rheoBases[];
 	
 	private boolean iso_comp;
+
+	// NS addition
+	protected double refrac_time = 1;//100.0; // ms of refractory period
+    protected double last_spike_t = 0.0;
+	protected boolean spike_detected = false;
 	
 	public Izhikevich9pModelMC(int nComps) {	
 		this.nCompartments = nComps;

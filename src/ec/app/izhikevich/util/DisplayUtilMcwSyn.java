@@ -19,7 +19,7 @@ import ec.app.izhikevich.model.Izhikevich9pModel4C;
 import ec.app.izhikevich.model.Izhikevich9pModelMC;
 import ec.app.izhikevich.model.neurontypes.mc.EAGenes;
 import ec.app.izhikevich.model.neurontypes.mc.OneNeuronInitializer;
-import ec.app.izhikevich.resonate.Bifurcation;
+//import ec.app.izhikevich.resonate.Bifurcation;
 import ec.app.izhikevich.starter.ECJStarterV2;
 
 public class DisplayUtilMcwSyn {	
@@ -498,7 +498,7 @@ public class DisplayUtilMcwSyn {
         model.setvPeak(genes.getVPEAK()[0]);
         
         
-        Bifurcation bf = new Bifurcation(model, genes.getI()[0]);		
+        /*Bifurcation bf = new Bifurcation(model, genes.getI()[0]);		
 		int period = bf.identifyPeriod(bf.cutSSPcareU(model.getvPeak()-20));
 		double freq = bf.getSpattern().getFiringFrequencyBasedOnISIs();
 		float normFactor;
@@ -510,7 +510,7 @@ public class DisplayUtilMcwSyn {
 		
 		System.out.println("Period: "+ period);
 		System.out.println("Frequency (spike): "+ freq+", log10:  "+(float)Math.log10(freq));
-		System.out.println("fitness: "+ (period*1f/normFactor));
+		System.out.println("fitness: "+ (period*1f/normFactor));*/
 		
 		if(displayParms) {
 			System.out.println("\nI.\t"+genes.getI()[0]);

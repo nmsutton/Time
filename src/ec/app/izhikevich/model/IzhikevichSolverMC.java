@@ -15,6 +15,11 @@ import ec.app.izhikevich.spike.ModelSpikePatternData;
 import ec.app.izhikevich.spike.SpikePatternAdapting;
 import ec.app.izhikevich.util.GeneralUtils;
 
+// NS addition
+//import java.io.BufferedWriter;
+//import java.io.FileWriter;
+//import java.io.IOException;
+
 public class IzhikevichSolverMC {	
 	//Default values for solver parameters
 	public static final float SS = 0.1f;//0.01f; // step size
@@ -193,6 +198,9 @@ class StateRecorder implements StepHandler {
 	List<ArrayList<Double>> y;
 	List<ArrayList<Double>> z;
 	int[] stateIdx;
+	// NS addition
+	//protected static String outputFilename = "neuron_voltage.csv";
+    //protected static BufferedWriter outputFile;
 	
 	public StateRecorder(int[] stateIdx) {
 		this.stateIdx = stateIdx;
@@ -221,6 +229,19 @@ class StateRecorder implements StepHandler {
 				z.get(i).add(interpolator.getInterpolatedState()[stateIdx[i]+1]);
 			}
 		}
+		// NS addition
+		/*if (false) {
+		try {
+			outputFile = new BufferedWriter(new FileWriter(outputFilename, true));
+			outputFile.write(Double.toString(interpolator.getCurrentTime()));
+			outputFile.write(",");
+			outputFile.write(Double.toString(interpolator.getInterpolatedState()[0]));
+			outputFile.write("\n");
+			outputFile.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		}*/
 	}
 	@Override
 	public void init(double arg0, double[] arg1, double arg2) {	}	

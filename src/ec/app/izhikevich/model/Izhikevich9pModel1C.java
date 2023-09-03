@@ -27,12 +27,20 @@ public class Izhikevich9pModel1C extends Izhikevich9pModelMC{
 		
 		// Soma
 		double V0 = y[0];
-		double U0 = y[1];	
+		double U0 = y[1];
+		
+		// NS addition
+		// refractory period
+		if (V0 >= vPeak[SOMA_IDX]) {last_spike_t=t; spike_detected=true;}
+		else if (spike_detected && t-last_spike_t>refrac_time) {spike_detected=false;}
 								
 		dy[0] = ((k[SOMA_IDX] * (V0 - vR[SOMA_IDX]) * (V0 - vT[SOMA_IDX]))  - U0 +  appCurrentSoma) / cM[SOMA_IDX];
 		dy[1] = a[SOMA_IDX] * ((b[SOMA_IDX] * (V0 - vR[SOMA_IDX])) - U0);		
 		
-		
+		// NS addition
+		if (spike_detected && t-last_spike_t<=refrac_time && t<=timeMax && y[0] < 0) {
+			dy[0] = 0; dy[1] = 0;
+		}		
 	}
 	//must override
 	public double[] getInitialStateForSolver(){

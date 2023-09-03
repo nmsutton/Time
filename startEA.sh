@@ -1,6 +1,7 @@
 #!/bin/bash
 export set JAVA_OPTS="-XX:+AggressiveHeap"
-export CLASSPATH="src::bin:lib/*:lib/commons-math3-3.6/*"
+#export CLASSPATH="src::bin:lib/*:lib/commons-math3-3.6/*"
+export CLASSPATH=$CLASSPATH:/home/nmsutton/Dropbox/CompNeuro/gmu/research/sim_project/code/Time/lib/poi-3.13/*:src::bin:lib/*:lib/commons-math3-3.6/*
 #find . -name "*.java" -print | xargs javac
 javac src/ecjapp/*.java src/ecjapp/eval/*.java src/ecjapp/eval/problem/*.java src/ecjapp/eval/problem/objective/*.java src/ecjapp/statistics/*.java src/ecjapp/util/*.java \
         src/ec/app/izhikevich/*.java \
